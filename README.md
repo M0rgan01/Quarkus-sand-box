@@ -1,5 +1,32 @@
 # quarkus-sand-box Project
 
+## Quarkus c'est quoi ?
+
+Quarkus est un framework Java, conçu pour les machines virtuelles Java (JVM) et la compilation native.
+
+Il tente de répondre aux problèmes liés à Java et son utilisation dans le Cloud, comme des applications légéres au démarrage rapide.
+Il permet de **réduire d’environ 99% le temps de boot et d’environ 86% l’empreinte mémoire des applications** Java classiques en utilisant la compilation native proposée par GraalVM.
+
+<p align="center">
+    <img src="./img/memoryfootprint2.jpg"
+    alt="memory"
+    width="100%"
+    />
+</p>
+
+<p align="center">
+    <img src="./img/startuptime2.jpg"
+    alt="startup"
+    width="100%"
+    />
+</p>
+
+Cette amélioration à cependant un coup : **une augmentation du temps de la phase de build** non négligeable pour du natif. 
+
+Quarkus fait également renaître une fonctionnalité qui avait plus ou moins disparu avec l’arrivée de Spring Boot : le livereload.
+
+---
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .

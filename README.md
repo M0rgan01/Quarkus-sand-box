@@ -2,17 +2,16 @@
 
 ## Quarkus c'est quoi ?
 
+- _Le site du projet : https://quarkus.io/_
+- _Le github du projet : https://github.com/quarkusio/quarkus_
+
 Quarkus est un framework Java, conçu pour les machines virtuelles Java (JVM) et la compilation native.
 
-Il tente de répondre aux problèmes liés à Java et son utilisation dans le Cloud, comme des applications légéres au démarrage rapide.
-Il permet de **réduire d’environ 99% le temps de boot et d’environ 86% l’empreinte mémoire des applications** Java classiques en utilisant la compilation native proposée par GraalVM.
+Il tente de répondre aux problèmes liés à Java et son utilisation dans le Cloud, en concevant des applications 
+légéres (**subatomic**) au démarrage rapide (**supersonic**).
 
-<p align="center">
-    <img src="./img/memoryfootprint2.jpg"
-    alt="memory"
-    width="100%"
-    />
-</p>
+Il permet de **réduire d’environ 99% le temps de boot et d’environ 86% l’empreinte mémoire des applications** Java 
+classiques en utilisant la compilation native proposée par GraalVM.
 
 <p align="center">
     <img src="./img/startuptime2.jpg"
@@ -21,9 +20,53 @@ Il permet de **réduire d’environ 99% le temps de boot et d’environ 86% l’
     />
 </p>
 
-Cette amélioration à cependant un coup : **une augmentation du temps de la phase de build** non négligeable pour du natif. 
+<p align="center">
+    <img src="./img/memoryfootprint2.jpg"
+    alt="memory"
+    width="100%"
+    />
+</p>
+
+Cette amélioration à cependant des désavantages : 
+- **une augmentation du temps de la phase de build** non négligeable pour du natif. 
+- Certaines **fonctionnalités ne sont pas disponibles** en exécution native, par exemple, Reflection et Java Native Interface (JNI).
+  Pour plus d'infos voir https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/Limitations.md
+
+## Des extensions ?
+
+Plus de 90 extensions Quarkus sont disponibles et couvrent la plupart des fonctionnalités requises pour créer des applications Cloud natives :
+
+- Web : RESTEasy JAX-RS/JSON-B, GraphQL, OpenAPI avec Swagger-UI, RESTEasy Qute…
+- Données : Hibernate, JDBC, MongoDB, Neo4j, Liquibase…
+- Messages asynchrones : Kafka, AMQP…
+- Reactive : Vert.x, Mutiny, Reactive client (DB2, MySQL, PostgreSQL)…
+- Cloud : Health, Fault Tolerance, Kubernetes, OpenShit, Amazon, Minikube…
+- Observabilité : Metrics & OpenTracing par SmallRye
+- Sécurité : OpenID, JSON Web Token, OAuth 2.0, Keycloak, Vault
+- Intégration avec Apache Camel
+
+Egalement une nouvelle extension « Hibernate ORM with Panache » simplifie l’accès à la couche de persistance en utilisant 
+le design pattern Active Record sur l’entité JPA.
+
+Une compatibilité est également possible avec l’écosystème Spring (Spring Boot, Spring Security, Spring Web, Spring Data JPA, Spring DI).
+Quarkus offrant des extensions pour convertir le code Spring en code natif.
+
+Certaines fonctionnalités sont néanmoins incompatibles :
+- Le support de Spring dans Quarkus ne démarre pas le contexte. 
+- Les classes et annotations Spring ne sont utilisées que pour lire les métadonnées et/ou sont utilisées comme types 
+- de retour de méthodes dans le code ou de types de paramètres. Ceci implique que l’ajout d’autres librairies Spring n’aura aucun effet. 
+- Les classes d’infrastructure Spring (comme org.springframework.beans.factory.config.BeanPostProcessor par exemple) ne seront pas exécutées.
+
+## Livereload
 
 Quarkus fait également renaître une fonctionnalité qui avait plus ou moins disparu avec l’arrivée de Spring Boot : le livereload.
+
+Basé sur le plugin Maven io.quarkus:quarkus-maven-plugin (ou équivalent sous Gradle), la simple commande `mvn compile quarkus:dev` 
+permet de lancer l’application Java en mode développement et de coder en direct sans avoir à relancer/déployer son application.
+
+## Unification de la programmation impérative et réactive
+
+https://www.technologies-ebusiness.com/solutions/quarkus
 
 ---
 

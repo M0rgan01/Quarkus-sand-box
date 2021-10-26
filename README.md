@@ -8,7 +8,7 @@
 Quarkus est un framework Java, conçu pour les machines virtuelles Java (JVM) et la compilation native.
 
 Il tente de répondre aux problèmes liés à Java et son utilisation dans le Cloud, en concevant des applications 
-légéres (**subatomic**) au démarrage rapide (**supersonic**).
+légères (**subatomic**) au démarrage rapide (**supersonic**).
 
 Il permet de **réduire d’environ 99% le temps de boot et d’environ 86% l’empreinte mémoire des applications** Java 
 classiques en utilisant la compilation native proposée par GraalVM.
@@ -45,7 +45,7 @@ Plus de 90 extensions Quarkus sont disponibles et couvrent la plupart des foncti
 - Sécurité : OpenID, JSON Web Token, OAuth 2.0, Keycloak, Vault
 - Intégration avec Apache Camel
 
-Egalement une nouvelle extension « Hibernate ORM with Panache » simplifie l’accès à la couche de persistance en utilisant 
+Egalement une nouvelle extension « **Hibernate ORM with Panache** » simplifie l’accès à la couche de persistance en utilisant 
 le design pattern Active Record sur l’entité JPA.
 
 Une compatibilité est également possible avec l’écosystème Spring (Spring Boot, Spring Security, Spring Web, Spring Data JPA, Spring DI).
@@ -66,7 +66,23 @@ permet de lancer l’application Java en mode développement et de coder en dire
 
 ## Unification de la programmation impérative et réactive
 
-https://www.technologies-ebusiness.com/solutions/quarkus
+Le modèle de développement de Quarkus se transforme pour s’adapter au type des applications que vous développez,
+le framework permet d’unifier la programmation impérative et réactive.
+
+Le développeur Java pourra ainsi dans ses services standards JAX-RS développer avec une seule API des microservices HTTP, 
+des applications réactives et des applications message-driven ; seule la réponse change : trois paradigmes, une seule implémentation.
+
+<p align="center">
+    <img src="./img/Prog.png"
+    alt="memory"
+    width="100%"
+    />
+</p>
+
+
+## Création d'un projet
+
+Il est possible de créer le squelette d'une nouvelle application grâce à une interface web : [https://code.quarkus.io/](https://code.quarkus.io/)
 
 ---
 

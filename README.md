@@ -4,6 +4,7 @@
 
 - _Le site du projet : https://quarkus.io/_
 - _Le github du projet : https://github.com/quarkusio/quarkus_
+- _Un exemple de projet : https://github.com/M0rgan01/Quarkus-sand-box_
 
 Quarkus est un framework Java, conçu pour les machines virtuelles Java (JVM) et la compilation native.
 
@@ -84,70 +85,54 @@ des applications réactives et des applications message-driven ; seule la répon
 
 Il est possible de créer le squelette d'une nouvelle application grâce à une interface web : [https://code.quarkus.io/](https://code.quarkus.io/)
 
----
+Une fois le projet créé, un dossier `docker` est visible dans `src/main`, il contient 4 Dockerfile :
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+- Dockerfile.jvm -> pour l'exécutable JAR (Fast jar packaging)
+- Dockerfile.legacy-jar -> pour l'exécutable JAR (packaging standard)
+- Dockerfile.native -> pour l'exécutable natif
+- Dockerfile.native-distroless -> contient uniquement les packages requis pour un exécutable natif
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+### Démarrer le project en dev mode 
 
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
+Vous pouvez exécuter votre application en mode dev avec le liveCoding en utilisant :
 
 ```shell script
 ./mvnw compile quarkus:dev
 ```
+> **_NOTE:_**  Quarkus met à disposition une Dev UI, uniquement en environnement de développement sur http://localhost:8080/q/dev/.
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
-## Packaging and running the application
+### Packaging de l'application
 
-The application can be packaged using:
+L'application peut être packagée en utilisant :
 
 ```shell script
 ./mvnw package
 ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory. Be aware that it’s not an _über-jar_ as
-the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
+L'application peut maintenant être démarrée en utilisant la commande suivante :
 
 ```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+java -jar target/quarkus-app/quarkus-run.jar
 ```
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+### Packaging de l'application (Natif)
 
-## Creating a native executable
-
-You can create a native executable using:
+Il est possible de créer un exécutable natif avec la commande suivante (nécessite GraalVM) :
 
 ```shell script
 ./mvnw package -Pnative
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+Si aucune installation de GraalVM, il est également possible de créer un exécutable natif dans un conteneur 
+avec la commande suivante :
 
 ```shell script
 ./mvnw package -Pnative -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./target/quarkus-sand-box-1.0-SNAPSHOT-runner`
+La commande suivante permet de démarrer votre executable natif :
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html
-.
-
-## Related Guides
-
-- RESTEasy JAX-RS ([guide](https://quarkus.io/guides/rest-json)): REST endpoint framework implementing JAX-RS and more
-
-## Provided Code
-
-### RESTEasy JAX-RS
-
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+```shell script
+./target/quarkus-sand-box-1.0-SNAPSHOT-runner
+```

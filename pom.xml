@@ -30,7 +30,14 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-       <!-- test with spring controller -->
+
+        <!-- basic authelytt -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-elytron-security-properties-file</artifactId>
+        </dependency>
+
+        <!-- test with spring controller -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-spring-web</artifactId>

@@ -72,4 +72,11 @@ public class QuarkusController {
         }
         return "never print";
     }
+
+    @GET
+    @Path("/secured")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String secured() {
+        return "secured";
+    }
 }
